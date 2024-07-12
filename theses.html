@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Procesamiento de imagenes y Vision por Computadora</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="imagenes\IconoOJO.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        .header{
+         width: auto;
+         height: 450px;
+         background-color: rgb(216, 227, 230);
+        }
+        .bebas-neue-regular {
+         font-family: "Bebas Neue", sans-serif;
+         font-weight: 400;
+         font-style: normal;
+        }
+        .navbar-expand-lg .navbar-collapse {
+         justify-content: center;
+        }
+        .navbar-expand-lg .navbar-nav {
+         width: 100%;
+        }
+        .navbar{
+            background-color: transparent !important;
+        }
+        .navbar-nav {
+         display: flex;
+         justify-content: space-evenly;
+         flex-wrap: wrap;
+        }
+        .nav-item {
+         flex-grow: 1;
+         text-align:justify;
+        }
+        .navbar-nav li > a{
+         font-family: "Bebas Neue", sans-serif;
+         font-size:x-large;
+         color: black;
+        }
+        .navbar-nav li > a:hover {
+         color: rgb(20, 82, 238); /* Color de hover de menu */
+        }
+        .image-container {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 55vh; /* Ajustar */
+        }
+        .centered-image {
+         max-width: 100%; /*Imagen responsive*/
+         height: auto; /*Mantiene aspect ratio */
+        }
+        .fixed-background {
+         /* Set the background image */
+         background-image: url('imagenes/camaleon.jpg');
+         /* Make the background fixed */
+         background-attachment: fixed;  
+         /* Cover the entire div */
+         background-size: cover;
+        /* Center the background image */
+         background-position: center;
+        /* Ensure the div has a height */
+        height: 500px; /* Adjust based on your design */
+        }
+        .padded-text {
+         padding-left: 40px;
+         padding-right: 40px;
+        }
+        .container-fluid{
+         display: flex;
+         justify-content: center;
+         align-items:center;
+         height: 100%;
+        }
+        .container-fluid2{
+         display:block;
+         justify-content:center;
+         align-items:left;
+         height: 100%;
+         padding-left: 5vh;
+        }
+        .section {
+         margin-bottom: 20px; /* Adjust based on spacing needs */
+        }
+        .section h2 {
+         margin-top: 0; /* Remove default margin */
+         margin-bottom: 10px; /* Space between title and list */
+        }
+        .section ul {
+         padding-left: 0; /* Reset default padding */
+        }
+        @media (max-width: 768px) {
+          .fixed-background {
+            background-attachment: scroll;
+            }
+        }
+        @media (max-width: 768px) {
+        .navbar-nav {
+            flex-direction: column;
+        }
+        .nav-item {
+            margin-bottom: 10px;
+        }
+        }
+        @media (min-width: 769px) {
+        .navbar-nav {
+            flex-direction: row;
+        }
+        .nav-item {
+            margin-left: 10px;
+            margin-right: 60px;
+            margin-bottom: 0;
+        }
+        .nav-item:last-child {
+            margin-right: 0;
+        }
+        }
+    </style>
+</head>
+<body>
+ <div class="header">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid" style="background-color: transparent">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#news">News</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="researchers.html#researchers">Researchers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="projects.html#projects">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#theses">Theses</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="technology.html#technology">Technology Transfer</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Theses Proposals</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="image-container">
+        <img src="imagenes\PIVC.png" alt="" class="centered-image">
+      </div>
+ </div>
+   <br><br>
+   <div class="container-fluid2">
+     <div class="section">
+        <div class="container-fluid2" id="theses">
+            <h2 style="font-family:Bebas Neue, sans-serif;">PhD Theses</h2>
+        </div>
+        <div class="container-fluid2">
+        <ul> 
+           <li>"Estimación de movimiento en secuencias de imágenes RGB y RGB-D". PhD Student Francisco Gómez Fernández. Thesis Director: Marta Mejail. 2016</li>
+            <br>
+           <li>"Método de navegación basado en aprendizaje y repetición autónoma para vehículos áreos no tripulados". PhD Student: Matías Nitsche Thesis Director: Marta Mejail. Miroslav Kulich 2016</li>
+            <br>
+           <li>"Reconocimiento de acciones en videos de profundidad". PhD Student: Sebastián Ubalde. Director: Marta Mejail, 2016</li>
+            <br>
+           <li>"Algoritmos de procesamiento de imágenes para la reconstrucción del desarrollo embrionario del pez cebra". PhD Student: Camilo Melani, Thesis Director: Marta Mejail, Alessandro Sarti. 2013. [pdf]</li>
+            <br>
+           <li>"Sistema de navegación monocular para robots móviles en ambientes interiores/exteriores". PhD Student: Pablo De Cristóforis, Thesis Director: Marta Mejail, 2013. [pdf]</li>
+            <br>
+           <li>"Tratamiento de Imagenes de Radar de Apertura Sintetica mediante filtros Stack ". PhD Student: Maria Elena Buemi, Thesis Director: Julio C. Jacobo, 2012. [pdf]</li>
+            <br>
+           <li>"Detecting clusters and boundaries: a two fold study on shape representation". PhD Student: Mariano Tepper, Thesis Director: Marta Mejail, 2011.</li>
+            <br>
+           <li>"Decorrelación espacial rápida y de alta eficiencia para compresión de imágenes con pérdidas". PhD Student: Mario Mastriani, Thesis Director: Marta Mejail, 2009.</li>
+            <br>
+           <li>"Modelos de Segmentación basados en Regiones y Contornos Activos aplicados a Imágenes de Radar de Apertura Sintética" . PhD Student: Juliana Gambini, Thesis Director: Marta Mejail, 2006. [pdf]</li>
+        </ul>
+        </div>
+    </div> 
+    <br>
+    <div class="section">
+        <div class="container-fluid2">
+            <h2 style="font-family:Bebas Neue, sans-serif;">GRADUATE THESES</h2>
+        </div>
+        <div class="container-fluid2">
+        <ul> 
+           <li>"Reconocimiento de Objetos en Imágenes RGB-D" Student: Nadia Mariel Heredia Favieri. Thesis Director: Francisco Gómez Fernández, Thesis Committee: Pablo Negri y Norberto Goussies. Abr 2015</li>
+            <br>
+           <li>"Seguimiento de objetos en secuencias de imágenes RGB-D" Student: Mariano Bianchi. Thesis Director: Francisco Gómez Fernández, Thesis Committee: Camilo Melani y Julio Jacobo Berlles. Mar 2015</li>
+            <br>
+           <li>"Estudios de métodos para estimación de género basado en caras". Student: Florencia Iglesias, Thesis Director: María Elena Buemi. Dic 2013</li>
+            <br>
+           <li>"Modelos Activos de Apariencia y Máquinas de soporte vectorial para Reconocimiento de Expresiones Faciales en Tiempo Real" Student: Julian Dondero, Thesis Director: Julio C. Jacobo, Sep 2013 pdf</li>
+            <br>
+           <li>"Inicialización y mantenimiento del modelo del fondo con fuerte oclusión". Student: Francisco Facioni. Thesis Director: Marta Mejail, Thesis Co-Director: Julio Jacobo, 2013. pdf</li>
+            <br>
+           <li>"Dirección y reconocimiento de las señas del juego del truco en tiempo real" , Students: Santiago Avendaño, Gonzalo Castillo, Thesis Director: Norberto A. Goussies and Marta Mejail, 2012. [pdf]</li>
+            <br>
+           <li>"Simulación de Sistemas de Radar Orbitales y Aerotransportales" . Student: Pablo A. Perna. Thesis Director: Julio Jacobo, 2012. pdf</li>
+            <br>
+           <li>" Texturas Dinámicas y Segmentación". Students: Juan Manuel Rodríguez. Thesis Director: Marta E. Mejail. March 2012. [pdf]</li>
+            <br>
+           <li>"Un estudio basado en la Técnica de Mean Shift para Agrupamiento y Seguimiento en video". Students: Martín Ignacio Nakama. Thesis Director: María Elena Buemi, Thesis Co-Director: Julio Jacobo. August 2011. [pdf]</li>
+            <br>
+           <li>"Detección y Reconocimiento de Rostros". Students: Ariel Morelli y Sebastán Padovani. Thesis Director: Mariano Tepper, Thesis Co-Director: Marta Mejail. March 2011. [pdf]</li>
+            <br>
+           <li>"Level Lines and Shape Context". Student: Francisco Paxti Gómez Fernández. Thesis Director: Mariano Tepper, Thesis Co-Director: Marta Mejail. March 2010. [pdf]</li>
+            <br>
+           <li>"Zernike Complex Moments Analysis as Image Descriptor". Student: Ezequiel Cura. Thesis Director: Mariano Tepper, Thesis Co-Director: Marta Mejail. February 2010. [pdf]</li>
+            <br>
+           <li>"Human Actions Recognition in Video Sequences". Student: Sebastian Ubalde. Thesis Director: Norberto Goussies, Thesis Co-Director: Marta Mejail. Decembre 2009. [pdf]</li>
+            <br>
+           <li>"Real Time Person Identification by Iris Recognition". Student: Marcelo Mottalli. Thesis Director: Marta Mejail. October 2008. [pdf]</li>
+            <br>
+           <li>"Detection and Tracking of Coronal Mass Ejections in Video Sequencesy"._Student: Norberto Goussies. Thesis Director: Marta Mejail. March 2008. [pdf]</li>
+            <br>
+           <li>"Indoor Robot Navigation using Uncertanty Prediction and Projective Invariance". Students: José Gerpe Blanco and Mariano César Buñirigo. Thesis Directors: Marta Mejail and Julio Jacobo. 2008. [pdf]</li>
+            <br>
+           <li>"Image Description using Natural Markers and Neural Descriptors". Student: Mariano Hernán Tepper. Thesis Director: Marta Mejail. 2006. [pdf]</li>
+            <br>
+           <li>"Texture Image Segmentation de Imágenes Texturadas". Students: Mariano Andrés Tribuj y Ariel David Waisbaum. Thesis Directors: Marta Mejail and Julio Jacobo. 2006. [pdf]</li>
+            <br>
+           <li>"Human Body Segmentation using Dynamic Contours". Students: Martín Sánchez y Sergio Romano. Thesis Directors: Marta Mejail and Julio Jacobo. 2003. [pdf]</li>
+        </ul>
+        </div>
+    </div>       
+        <br><br>
+</div>    
+ <div class="footer">
+ </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script></body>
+</html>
