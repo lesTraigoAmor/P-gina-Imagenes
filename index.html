@@ -12,7 +12,7 @@
     <style>
         .header{
          width: auto;
-         height: 450px;
+         height: 287px;
          background-color: rgb(216, 227, 230);
         }
         .bebas-neue-regular {
@@ -20,41 +20,133 @@
          font-weight: 400;
          font-style: normal;
         }
+
+        .tab-content {
+         display: none;
+        }
+        .tab:target .tab-content, .tab:last-of-type .tab-content {
+         display: block;
+        }   
+        .tab:target ~ .tab:last-of-type .tab-content {
+         display: none;
+        }
+        :root {
+         --tabs-border-color: #ABCDEF;
+         --tabs-border-size: 3px;
+         --tabs-text-color: white;
+         --tabs-dark-color: #012345;
+         --tabs-lite-color: #345678;
+         --tabs-width: 120px;
+         --tabs-height: 40px;
+        }
+        body {
+         font-family: sans-serif;
+         line-height: 1.2;
+        }
+        h2, p {
+         margin: 0;
+        } 
+        a {
+          color: inherit;
+          text-decoration: none;
+        } 
+        .tabs * {
+          box-sizing: border-box;
+        }
+        .tab-container {
+         position: relative;
+         padding-top: var(--tabs-height); /* en esta zona colocaremos las pestañas */
+        } 
+        #tab1>a { --tabs-position: 0; }
+        #tab2>a { --tabs-position: 1; }
+        #tab3>a { --tabs-position: 2; }
+        #tab4>a { --tabs-position: 3; }
+        #tab5>a { --tabs-position: 4; }
+        #tab6>a { --tabs-position: 5; }
+        #tab7>a { --tabs-position: 6; }
+        #tab8>a { --tabs-position: 7; }
+        #tab9>a { --tabs-position: 8; }
+        .tab>a {
+          text-align: center;
+          position: absolute;
+          width: calc(var(--tabs-width));
+          height: calc(var(--tabs-height) + var(--tabs-border-size)); 
+          top: 0;
+          left: calc(var(--tabs-width) * var(--tabs-position)); /* posición de cada pestaña */
+        }
+        .tabs { 
+          padding: 10px;
+          color: var(--tabs-text-color);
+        }
+        .tab-content {
+          background-color: var(--tabs-lite-color); 
+          padding: 20px;
+          border: var(--tabs-border-size) solid var(--tabs-border-color);
+          border-radius: 0 0 10px 10px;
+          position: relative;
+          z-index: 100;
+        }
+        .tab>a {
+          background-color: var(--tabs-dark-color); 
+          padding: 10px;
+          border: var(--tabs-border-size) solid var(--tabs-border-color);
+          border-radius: 10px 10px 0 0;
+          border-bottom: 0;
+        }
+        .tab:target>a, .tab:last-of-type>a {
+          background-color: var(--tabs-lite-color); 
+          z-index: 200;
+        }
+        .tab:target ~ .tab:last-of-type>a {
+          background-color: var(--tabs-dark-color); 
+          z-index: 0; 
+        }
+
         .navbar-expand-lg .navbar-collapse {
          justify-content: center;
         }
-        .navbar-expand-lg .navbar-nav {
+        .navbar-expand-lg .nav {
          width: 100%;
         }
         .navbar{
             background-color: transparent !important;
         }
-        .navbar-nav {
+        .nav {
          display: flex;
-         justify-content: space-evenly;
-         flex-wrap: wrap;
+         justify-content: center;
+         flex-wrap: nowrap;
         }
         .nav-item {
          flex-grow: 1;
-         text-align:justify;
+         text-align:center;
+         margin: 0 !important;
         }
         .navbar-nav li > a{
          font-family: "Bebas Neue", sans-serif;
          font-size:x-large;
          color: black;
         }
-        .navbar-nav li > a:hover {
-         color: rgb(20, 82, 238); /* Color de hover de menu */
+        .nav-link:hover {
+         background-color: #00d0ff; /* Adjust the background color as needed */
+         color: white; /* Adjust the text color as needed */
+        }
+        .nav-link.active {
+         background-color: green; /* Green background for active tab */
+         color: rgb(106, 20, 7); /* White text color for better contrast */
+        }
+        .nav li > a:hover {
+         color: rgb(255, 255, 255); /* Color de hover de menu */
         }
         .image-container {
          display: flex;
          justify-content: center;
          align-items: center;
-         height: 55vh; /* Ajustar */
+         height: 40vh; /* Ajustar */
+         padding-top: -10px;
         }
         .centered-image {
          max-width: 100%; /*Imagen responsive*/
-         height: auto; /*Mantiene aspect ratio */
+         height: 70%; /*Mantiene aspect ratio */
         }
         .fixed-background {
          /* Set the background image */
@@ -84,7 +176,7 @@
             }
         }
         @media (max-width: 768px) {
-        .navbar-nav {
+        .nav {
             flex-direction: column;
         }
         .nav-item {
@@ -92,7 +184,7 @@
         }
         }
         @media (min-width: 769px) {
-        .navbar-nav {
+        .nav {
             flex-direction: row;
         }
         .nav-item {
@@ -108,16 +200,380 @@
 </head>
 <body>
  <div class="header">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="image-container">
+    <img src="imagenes/Procesamiento_de_Imágenes_y_Vísion_por_Computadora-removebg-preview.png" alt="" class="centered-image">
+  </div>
+  <div class="tabs">
+    <div class="tab-container">
+      <div id="tab6" class="tab">
+        <a href="#tab6">T. Transfer</a>
+        <div class="tab-content">
+          <div class="container-fluid"  id="technology">
+            <h1>Technology Transfer</h1>
+           </div>
+           <br><br>
+           <hr>
+           <div class="container-fluid">
+             <div class="section">
+                <div class="container-fluid3">
+                    <h2 style="font-family:Bebas Neue, sans-serif;">A development of a Video Segmentation Tool for Content-based Search and Indexing</h2>
+                </div>
+                <br>
+                <div class="container-fluid">
+                    <img src="imagenes\technology.png" alt="imagen de proyecto">
+                </div>
+                <div class="container-fluid">
+                 <p>Press <a href="https://prezi.com/p/nxtmflfuxu0c/embed/">here</a> for presentation slide</p>
+                </div>
+            </div>  
+                <br><br>
+           </div>
+           <hr>
+           <div class="container-fluid">
+            <div class="section">
+               <div class="container-fluid">
+                   <h2 style="font-family:Bebas Neue, sans-serif;">Automatic Recognition of Trademark Logos using Computer Vision and Image Processing Techniques</h2>
+               </div>
+               <div class="container-fluid3">
+                <p>Content based image retrieval. Similarity based image recovery from trademark databases using shape recognition. Shape analysis is the mainly automatic analysis of geometric shapes, for example using a computer to detect similarly shaped objects in a database or parts that fit together.</p>
+               </div>
+               <div class="container-fluid">
+                   <img src="imagenes\Avatar_frame43.jpg" alt="imagen de proyecto">
+               </div>
+               <div class="container-fluid">
+                <p>For more information click <a href="https://grupivis.dc.uba.ar/trademark.php">here</a></p>
+               </div>
+            </div>  
+               <br><br>
+           </div>
+            <hr>
+            <div class="container-fluid">
+                <div class="section">
+                   <div class="container-fluid">
+                       <h2 style="font-family:Bebas Neue, sans-serif;">Real-Time Identification of Persons by Iris Recognition</h2>
+                   </div>
+                   <div class="container-fluid3">
+                    <p>Person identification by analysis of the iris texture is accepted as one of the most efficient biometric methods with the objective of controlling access of individuals to buildings, offices, equipment and other protected resources.</p>
+                   </div>
+                   <div class="container-fluid">
+                       <img src="imagenes\ojo.jpg" alt="imagen de proyecto">
+                   </div>
+                   <div class="container-fluid">
+                    <h4>Real-Time Identification of Persons by Iris Recognition</h4>
+                   </div>
+                   <div class="container-fluid3">
+                    <p>Recognition of persons by analysis of the iris texture is accepted as one of the most efficient biometric methods for identification, with the objective of controlling access of individuals to buildings, offices, equipment and other protected resources.</p>
+                    <p>The usual control access methods involve memorizing passwords or alphanumeric codes, which can be easily forgotten or, in the worst case, stolen. This is why biometric systems based on morphologic features of persons are being increasingly considerated as a solution for different applications.</p>
+                    <p>In particular, recognition of persons by iris has the advantages of being non-invasive, not requiring physical contact with any device of any kind and having enormous reliability.</p>
+                    <p>The pattern of the iris is unique for every individual, it is highly differentiable between individuals (low amount of false positives) and highly repeatable (low amount of false negatives), unlike other biometric features such as the face and even fingerprints.</p>
+                   </div>
+                   <div class="container-fluid">
+                    <h4>Implemented system</h4>
+                   </div>
+                   <div class="container-fluid3">
+                    <p>In this work, we've built a complete and automatic system of identification of persons based on iris recognitions. We developed optimized algorithms for working in real-time environments.</p>
+                    <p>The system is composed of an infrared video camera which is used for capturing images of the eyes of the individuals, and the software needed to process such images. The system works in real time, which minimum interaction between the operator and the system.</p>
+                    <p>The system has been tested against a database of over 1000 images of eyes, and it achieved a correct recognition rate of over 99%.</p>
+                   </div>
+                   <div class="container-fluid">
+                    <h4>How the system works</h4>
+                   </div>
+                   <div class="container-fluid3">
+                    <p>The system works by capturing a stream of video and processing it in real-time. When a user puts his eye close to the video camera, the system detects this and tries to capture a sharp image of the eye of the user.</p>
+                    <p>The image of the eye is then analysed using image processing algorithms. The texture of the iris is extracted and an unique code is generated from that texture. The code is then compared against codes previously stored in a database, and when two codes match, the person is identified.</p>
+                    <!-- <p>The following video illustrates how the system works</p> -->
+                   </div>
+                </div>  
+                   <br><br>
+               </div>
+                <hr>
+        </div>
+      </div> 
+      <div id="tab5" class="tab">
+        <a href="#tab5">Proposals</a>
+        <div class="tab-content">
+          <div class="container-fluid">
+            <div class="section">
+               <div class="container-fluid3">
+                   <h4><b><i>Título: Segmentación Automática de Imágenes de Dosel del Bosque de Lenga</i></b> (Parque Nacional Los Alerces, Esquel)</h4>
+               </div>
+               <br>
+               <div class="container-fluid3">
+                <p><b><i>Palabras claves</i></b>: Registración, Segmentación, Deep Learning, Weakly Labeled</p>
+                <p><b><i>Responsable</b></i>: Dr. Gastón Diaz (CIEFAP, Esquel), Dr. Enzo Ferrante (sinc(i)-UNL, Santa Fe), Dr. Pablo Negri (ICC-UBA, CABA)</p>
+                <p><b><i>Descripción</b></i>: El objetivo de la tesis es la implementación de un sistema automático de codificación de rasgos faciales que permita optimizar los algoritmos de reconocimiento de rostros. Las tareas a llevar a cabo involucran el desarrollo y evaluación de clasificadores no-supervisados para el agrupamiento (clustering) de descriptores, usando arquitecturas de aprendizaje profundo (Deep Learning).</p>
+                <p><b><i>Requisitos</b></i>: conocimientos y experiencia en visión artificial, procesamiento de imágenes, y sistemas de aprendizaje automático. Idioma de programación Python.</p>
+                <p>Los interesados deben enviar un analítico y currículum al Dr. Pablo Negri (pnegri@dc.uba.ar)</p>
+               </div>
+            </div>  
+               <br>
+           </div>
+            <hr>
+            <div class="container-fluid">
+                <div class="section">
+                   <div class="container-fluid3">
+                       <h4><b><i>Título: Codificación Automática de Rasgos Faciales</i></b></h4>
+                   </div>
+                   <br>
+                   <div class="container-fluid3">
+                    <p><b><i>Palabras claves</i></b>: Face Recognition, Clustering, Deep Learning, Unsupervised Learning</p>
+                    <p><b><i>Responsable</b></i>: Dr. Pablo Negri (ICC-UBA)</p>
+                    <p><b><i>Descripción</b></i>:El objetivo de la tesis es la implementación de un sistema automático de codificación de rasgos faciales que permita optimizar los algoritmos de reconocimiento de rostros. Las tareas a llevar a cabo involucran el desarrollo y evaluación de clasificadores no-supervisados para el agrupamiento (clustering) de descriptores, usando arquitecturas de aprendizaje profundo (Deep Learning).</p>
+                    <p><b><i>Requisitos</b></i>:Conocimientos y experiencia en sistemas automáticos de aprendizaje. Programación en Python.</p>
+                    <p>Los interesados deben enviar un analítico y currículum al Dr. Pablo Negri (pnegri@dc.uba.ar)</p>
+                   </div>
+                </div>
+            </div>
+            <hr>
+        <div class="container-fluid">
+            <div class="section">
+               <div class="container-fluid3">
+                   <h4><b><i>Título: Análisis de Sesgo de Modelos y Datasets en Poblaciones de Alta Diversidad: Aplicación al Reconocimiento de Rostros</i></b></h4>
+               </div>
+               <br>
+               <div class="container-fluid3">
+                <p><b><i>Palabras claves</i></b>: Cámaras por Eventos, Spiking Neural Networks, Machine Learning, Secuencias de Datos.</p>
+                <p><b><i>Responsable</b></i>: Dr. Pablo Negri (ICC-UBA)</p>
+                <p><b><i>Descripción</b></i>:La tesis tiene como objetivo generar un análisis crítico del sesgo en resultados de modelos de reconocimiento de rostros frente a la diversidad de género y étnica. Durante la tesis se van a estudiar los desvíos en performance que estos sistemas pueden poseer al identificar por ejemplo personas del sexo masculino y femenino. También se extiende al reconocimiento de tipo étnico. La metodología consistirá en desarrollo y la implementación de herramientas que expliquen las predicciones de los clasificadores profundos.</p>
+                <p><b><i>Requisitos</b></i>:Conocimientos y experiencia en sistemas automáticos de aprendizaje. Programación en Python.</p>
+                <p>Los interesados deben enviar un analítico y currículum al Dr. Pablo Negri (pnegri@dc.uba.ar)</p>
+               </div>
+            </div>
+        </div>      
+            <hr>
+            <div class="container-fluid">
+                <div class="section">
+                   <div class="container-fluid3">
+                       <h4><b><i>Título: Algoritmos de Reconocimiento de Eventos Temporales: Aplicación al Lenguaje Gestual con Cámaras Neuromórficas</i></b></h4>
+                   </div>
+                   <br>
+                   <div class="container-fluid3">
+                    <p><b><i>Palabras claves</i></b>: Cámaras por Eventos, Spiking Neural Networks, Machine Learning, Secuencias de Datos.</p>
+                    <p><b><i>Responsable</b></i>: Dr. Pablo Negri (ICC-UBA)</p>
+                    <p><b><i>Descripción</b></i>: La tesis está enfocada al desarrollo de metodologías de reconocimiento de secuencias temporales utilizando una arquitectura denominada Spiking Neural Networks. Este tipo de redes neuronales poseen la particularidad de trabajar con un modelo dinámico biológicamente inspirado y la utilización de la información temporal. El objetivo de la tesis es el desarrollo de metodologías de aprendizaje automático de secuencias de datos temporales, más específicamente, reconocimiento del lenguaje gestual capturados por una cámara neuromórfica.</p>
+                    <p><b><i>Requisitos</b></i>:Conocimientos y experiencia en sistemas automáticos de aprendizaje. Programación en Python.</p>
+                    <p>Los interesados deben enviar un analítico y currículum al Dr. Pablo Negri (pnegri@dc.uba.ar)</p>
+                   </div>
+                </div>
+            </div>      
+              <hr>
+        </div>
+      </div> 
+      <div id="tab4" class="tab">
+        <a href="#tab4">Theses</a>
+        <div class="tab-content">
+          <div class="section">
+            <div class="container-fluid2" id="theses">
+                <h2 style="font-family:Bebas Neue, sans-serif;">PhD Theses</h2>
+            </div>
+            <div class="container-fluid2">
+            <ul> 
+               <li>"Estimación de movimiento en secuencias de imágenes RGB y RGB-D". PhD Student Francisco Gómez Fernández. Thesis Director: Marta Mejail. 2016</li>
+                <br>
+               <li>"Método de navegación basado en aprendizaje y repetición autónoma para vehículos áreos no tripulados". PhD Student: Matías Nitsche Thesis Director: Marta Mejail. Miroslav Kulich 2016</li>
+                <br>
+               <li>"Reconocimiento de acciones en videos de profundidad". PhD Student: Sebastián Ubalde. Director: Marta Mejail, 2016</li>
+                <br>
+               <li>"Algoritmos de procesamiento de imágenes para la reconstrucción del desarrollo embrionario del pez cebra". PhD Student: Camilo Melani, Thesis Director: Marta Mejail, Alessandro Sarti. 2013. [pdf]</li>
+                <br>
+               <li>"Sistema de navegación monocular para robots móviles en ambientes interiores/exteriores". PhD Student: Pablo De Cristóforis, Thesis Director: Marta Mejail, 2013. [pdf]</li>
+                <br>
+               <li>"Tratamiento de Imagenes de Radar de Apertura Sintetica mediante filtros Stack ". PhD Student: Maria Elena Buemi, Thesis Director: Julio C. Jacobo, 2012. [pdf]</li>
+                <br>
+               <li>"Detecting clusters and boundaries: a two fold study on shape representation". PhD Student: Mariano Tepper, Thesis Director: Marta Mejail, 2011.</li>
+                <br>
+               <li>"Decorrelación espacial rápida y de alta eficiencia para compresión de imágenes con pérdidas". PhD Student: Mario Mastriani, Thesis Director: Marta Mejail, 2009.</li>
+                <br>
+               <li>"Modelos de Segmentación basados en Regiones y Contornos Activos aplicados a Imágenes de Radar de Apertura Sintética" . PhD Student: Juliana Gambini, Thesis Director: Marta Mejail, 2006. [pdf]</li>
+            </ul>
+            </div>
+        </div>
+        <div class="section">
+          <div class="container-fluid2">
+              <h2 style="font-family:Bebas Neue, sans-serif;">GRADUATE THESES</h2>
+          </div>
+          <div class="container-fluid2">
+          <ul> 
+             <li>"Reconocimiento de Objetos en Imágenes RGB-D" Student: Nadia Mariel Heredia Favieri. Thesis Director: Francisco Gómez Fernández, Thesis Committee: Pablo Negri y Norberto Goussies. Abr 2015</li>
+              <br>
+             <li>"Seguimiento de objetos en secuencias de imágenes RGB-D" Student: Mariano Bianchi. Thesis Director: Francisco Gómez Fernández, Thesis Committee: Camilo Melani y Julio Jacobo Berlles. Mar 2015</li>
+              <br>
+             <li>"Estudios de métodos para estimación de género basado en caras". Student: Florencia Iglesias, Thesis Director: María Elena Buemi. Dic 2013</li>
+              <br>
+             <li>"Modelos Activos de Apariencia y Máquinas de soporte vectorial para Reconocimiento de Expresiones Faciales en Tiempo Real" Student: Julian Dondero, Thesis Director: Julio C. Jacobo, Sep 2013 pdf</li>
+              <br>
+             <li>"Inicialización y mantenimiento del modelo del fondo con fuerte oclusión". Student: Francisco Facioni. Thesis Director: Marta Mejail, Thesis Co-Director: Julio Jacobo, 2013. pdf</li>
+              <br>
+             <li>"Dirección y reconocimiento de las señas del juego del truco en tiempo real" , Students: Santiago Avendaño, Gonzalo Castillo, Thesis Director: Norberto A. Goussies and Marta Mejail, 2012. [pdf]</li>
+              <br>
+             <li>"Simulación de Sistemas de Radar Orbitales y Aerotransportales" . Student: Pablo A. Perna. Thesis Director: Julio Jacobo, 2012. pdf</li>
+              <br>
+             <li>" Texturas Dinámicas y Segmentación". Students: Juan Manuel Rodríguez. Thesis Director: Marta E. Mejail. March 2012. [pdf]</li>
+              <br>
+             <li>"Un estudio basado en la Técnica de Mean Shift para Agrupamiento y Seguimiento en video". Students: Martín Ignacio Nakama. Thesis Director: María Elena Buemi, Thesis Co-Director: Julio Jacobo. August 2011. [pdf]</li>
+              <br>
+             <li>"Detección y Reconocimiento de Rostros". Students: Ariel Morelli y Sebastán Padovani. Thesis Director: Mariano Tepper, Thesis Co-Director: Marta Mejail. March 2011. [pdf]</li>
+              <br>
+             <li>"Level Lines and Shape Context". Student: Francisco Paxti Gómez Fernández. Thesis Director: Mariano Tepper, Thesis Co-Director: Marta Mejail. March 2010. [pdf]</li>
+              <br>
+             <li>"Zernike Complex Moments Analysis as Image Descriptor". Student: Ezequiel Cura. Thesis Director: Mariano Tepper, Thesis Co-Director: Marta Mejail. February 2010. [pdf]</li>
+              <br>
+             <li>"Human Actions Recognition in Video Sequences". Student: Sebastian Ubalde. Thesis Director: Norberto Goussies, Thesis Co-Director: Marta Mejail. Decembre 2009. [pdf]</li>
+              <br>
+             <li>"Real Time Person Identification by Iris Recognition". Student: Marcelo Mottalli. Thesis Director: Marta Mejail. October 2008. [pdf]</li>
+              <br>
+             <li>"Detection and Tracking of Coronal Mass Ejections in Video Sequencesy"._Student: Norberto Goussies. Thesis Director: Marta Mejail. March 2008. [pdf]</li>
+              <br>
+             <li>"Indoor Robot Navigation using Uncertanty Prediction and Projective Invariance". Students: José Gerpe Blanco and Mariano César Buñirigo. Thesis Directors: Marta Mejail and Julio Jacobo. 2008. [pdf]</li>
+              <br>
+             <li>"Image Description using Natural Markers and Neural Descriptors". Student: Mariano Hernán Tepper. Thesis Director: Marta Mejail. 2006. [pdf]</li>
+              <br>
+             <li>"Texture Image Segmentation de Imágenes Texturadas". Students: Mariano Andrés Tribuj y Ariel David Waisbaum. Thesis Directors: Marta Mejail and Julio Jacobo. 2006. [pdf]</li>
+              <br>
+             <li>"Human Body Segmentation using Dynamic Contours". Students: Martín Sánchez y Sergio Romano. Thesis Directors: Marta Mejail and Julio Jacobo. 2003. [pdf]</li>
+          </ul>
+          </div>
+      </div>
+        </div>
+      </div> 
+      <div id="tab3" class="tab"> 
+        <a href="#tab3">Projects</a>
+        <div class="tab-content">
+          <div class="section">
+            <div class="container-fluid3" id="projects">
+                <h2 style="font-family:Bebas Neue, sans-serif;">Current Projects</h2>
+            </div>
+            <div class="container-fluid3">
+            <ul> 
+                <li>2018-2021 Proyecto UBACyT Programación Científica 2018 "Análisis Automático de la Dinámica Facial y Corporal" (224) Director: Daniel Acevedo.</li>
+                <br>
+                <li>2018-2021 Proyecto CYTED P517RT0176 "Red temática Iberoamericana sobre aplicaciones TICs para Ciudades Inteligentes” Países integrantes: Ecuador, Brasil, España, Portugal, Chile y Argentina. Investigador Responsable por la parte argentina: Marta Mejail</li>
+                <br>
+                <li>2018-2021 Proyecto UBACyT Programación Científica 2018 "Extracción de características para el reconocimiento de tipos de melanoma y otras lesiones de piel, mediante procesamiento digital de imágenes." (311) Directora: Marta Mejail</li>
+                <br>
+                <li>2017-2020 Proyecto PICT 2015-3174. "Procesamiento de imágenes y visión por computadora.Aplicaciones en análisis de escenas, mapas de ambiente, modelos 3D y análisis de imágenes SAR. Directora: Marta Mejail</li>
+            </ul>
+            </div>
+        </div> 
+        <br>
+        <div class="section">
+            <div class="container-fluid3">
+                <h2 style="font-family:Bebas Neue, sans-serif;">PREVIOUS PROJECTS</h2>
+            </div>
+            <div class="container-fluid3">
+            <ul> 
+                <li>UBACyT Project, Science Program 2011-2014 _"Algorithms and Models in Digital Image Processing, Vision, Learning and Pattern Recognition"_ (224) Director: Marta Mejail, 2011-2014</li>
+                <br>
+                <li>Regional Program STIC-AmSud 2010 Project Proposal (Research – Innovation) 11STIC-01 "Mathematical models for visual perception and subpixel computer vision(MMVPSCV)" , International Coordinator: Andrés Almansa, Télécom Paris-Tech, Project Coordinators: Marta Mejail, Argentina; Pablo Musé, Uruguay; Alvaro Pardo, Uruguay; Jean-Michel Morel, France. 2011-2012. [link]</li>
+                <br>
+                <li>LACCIR RFP Latin American and Caribbean Collaborative ICT Research 2009 "GPGPU Accelerated Image Processing and Visualization: Applications in Environmental Sciences and Healthcare. (Earth, Environment & Climate Change)" Marta Mejail from Universidad de Buenos Aires, Argentina; Álvaro Pardo from Universidad Católica del Uruguay and Claudio Delrieux from Universidad Nacional del Sur, Argentina. 2010. [link]</li>
+                <br>
+                <li>Proyectos de Investigación Científica y Tecnológica PICT-2008-1926 "Image and Video Analysis and Segmentation. Application to Synthetic Aperture Radar images, Tracking in Video Surveilliance, Shape Matching in Image Database and Robotic Vision." 2010-2012</li>
+                <br>
+                <li>UBACyT Project, Science Program 2008-2010"Image Analyis and Segmentation. Application to Synthetic Aperture Radar images, Solar Coronagraphy and Computer Vision" (X142) Director: Marta Mejail, 2008-2010</li>
+                <br>
+                <li>Research Project in Science and Technology PICT-2006-02217 "Image Analyis and Segmentation. Application to Synthetic Aperture Radar and Solar Coronagraphy Images" Director: Marta Mejail, 2008-2010> UBACyT</li>
+                <br>
+                <li>Project, Science Program 2008-2010 "Generation and Development of Algorithms for the Simulation of Applications based on Synthetic Aperture Radar" (X105) Director: Julio Jacobo-Berlles, 2008-2010</li>
+                <br>
+                <li>Alfa Project(II-0366-FA) "Computer Vision Foundations and Applications" . École Normale Supérieure de Cachan, France, institución Universidad de la República, Universidad Pompeu Fabra, España, Universidad de Canarias, España, Università di Bologna, Italia, Universidad de Chile, Chile and Universidad de Buenos Aires, Argentina. [link]</li>
+                <br>
+                <li>UBACyT Project, Science Program 2004-2007, "Image Analyis and Segmentation. Robot Vision. Object Trancking. Application to biomedical and SAR images." (X323).</li>
+                <br>
+                <li>Bilateral Cooperation Project "Robust Techniques for Image Segmentation.", (CU/PA03-EXI/024).Instituto de Cibernética, Matemática y Física ICIMAF, La Habana, Cuba and Universidad de Buenos Aires, Argentina</li>
+                <br>
+                <li>Vitae-Andes-Antorchas Project: Brasil, Chile and Argentina : "Filtragem Interagente de Imagens", 2000-2001.</li>
+                <br>
+                <li>Cooperation Project "User-Friendly Statistical Tools for Information Retrieval in SAR Imagery (USeFIRSt)", (INF.3/98/OG). Institut für Hochfrequenztechnik / Abteilung Mikrowellensysteme del DLR (Deutsches Zentrum für Luft- und Raumfahrt). Scientific and technological Cooperation Program Argentine-Germany (SeCyT - BMBF). Director : Julio C. Jacobo, 1998-2002.</li>
+            </ul>
+            </div>
+        </div> 
+        </div>
+      </div>
+      <div id="tab2" class="tab">
+        <a href="#tab2">Researchers</a>
+        <div class="tab-content">
+          <h2></h2>
+          <div class="section">
+            <div class="container-fluid2" id="researchers">
+                <h2 style="font-family:Bebas Neue, sans-serif;">Heads</h2>
+            </div>
+            <div class="container-fluid2">
+            <ul> 
+                <li>Prof. Marta E. Mejail PhD (marta at dc.uba.ar), (marta.mejail at gmail.com)</li>
+                <li>Prof. Julio C. Jacobo-Berlles PhD (jacobo at dc.uba.ar), (julio.jacobo at gmail.com)</li>
+            </ul>
+            </div>
+        </div>
+          <br>
+          <div class="section">
+            <div class="container-fluid2">
+                <h2 style="font-family:Bebas Neue, sans-serif;">Researchers</h2>
+            </div>
+            <div class="container-fluid2">
+            <ul> 
+                <li>María Elena Buemi PhD</li>
+                <li>Daniel Acevedo PhD</li>
+                <li>Francisco "Pachi" Gómez Fernández PhD</li>
+                <li>Pablo De Cristoforis PhD</li>
+                <li>Matías Nitsche PhD</li>
+                <li>Thomas Fischer PhD</li>
+                <li>Pablo Negri PhD</li>
+                <li>Carlos Ismael Orosco PhD Student</li>
+            </ul>
+            </div>
+        </div>
+        <br>
+        <div class="section">    
+          <div class="container-fluid2">
+              <h2 style="font-family:Bebas Neue, sans-serif;">Graduates</h2>
+          </div>
+          <div class="container-fluid2">
+          <ul> 
+              <li>Mariano Tepper PhD</li>
+              <li>Norberto A. Goussies PhD</li>
+              <li>Sebastián Ubalde PhD</li>
+              <li>Alexandra Diehl PhD</li>
+              <li>Camilo Melani PhD</li>
+              <li>Taihú Pire PhD</li>
+              <li>Rosana Matuk PhD</li>
+              <li>Lic. Juan Manuel Rodríguez</li>
+              <li>Lic. Esteban Urisa</li>
+              <li>Lic. Florencia Iglesias</li>
+              <li>Lic. Marcelo Mottalli</li>
+          </ul>
+          </div>
+      </div>
+        </div>
+      </div> 
+      <div id="tab1" class="tab">
+        <a href="#tab1">Home</a>
+        <div class="tab-content">
+          <h2 style="font-family:Bebas Neue, sans-serif;">HOME</h2>
+          <br>
+          <p>The goal of computer vision is to detect objects and interpret images, emulating the ability of our brains at these tasks. The focus of our present research includes various application fields in biometry and surveillance. Specifically: iris recognition, face detection and recognition, detection of pedestrians, human action detection and traffic detection.</p>
+          <br>
+          <p>Research is also being done in remote sensing image processing, mainly in Synthetic Aperture Radar (SAR) images.</p>  
+          <br>
+          <p>Another active research areas are 3D real-time visualization and computer graphics, including topics related to GPU programming, augmented reality and computer human interaction.</p>   
+          <br>
+          <p>Human resources are our most valuable assets. In this area, graduate theses and PhD theses are being developed within the group and in collaboration with other groups, both local and foreign.</p>
+          <br>
+          <p>We teach courses in image processing and image analysis and have technology transfer projects with the industry and the government.</p>
+        </div> 
+      </div> 
+    </div>
+  </div>
+    <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid" style="background-color: transparent">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="nav nav-tabs">
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link active" href="index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#news">News</a>
@@ -140,21 +596,18 @@
             </ul>
           </div>
         </div>
-      </nav>
-      <div class="image-container">
-        <img src="imagenes\PIVC.png" alt="" class="centered-image">
-      </div>
+      </nav> -->
  </div>
    <br><br>
- <div class="padded-text" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+ <!-- <div class="padded-text" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
     <p>The goal of computer vision is to detect objects and interpret images, emulating the ability of our brains at these tasks. The focus of our present research includes various application fields in biometry and surveillance. Specifically: iris recognition, face detection and recognition, detection of pedestrians, human action detection and traffic detection.</p>
     <p>Research is also being done in remote sensing image processing, mainly in Synthetic Aperture Radar (SAR) images.</p>  
     <p>Another active research areas are 3D real-time visualization and computer graphics, including topics related to GPU programming, augmented reality and computer human interaction.</p>   
     <p>Human resources are our most valuable assets. In this area, graduate theses and PhD theses are being developed within the group and in collaboration with other groups, both local and foreign.</p>
     <p>We teach courses in image processing and image analysis and have technology transfer projects with the industry and the government.</p>
- </div>
+ </div> -->
    <br><br>
- <div class="fixed-background">
+ <!-- <div class="fixed-background">
  </div>
  <br><br>
  <div class="container-fluid" id="news">
@@ -175,7 +628,7 @@
         <p>This is a brief excerpt of the news article...</p>
         <a href="#">Read More</a>
     </div>
- </div>
+ </div> -->
 
  <br><br>
 
@@ -184,6 +637,15 @@
  </div>
 
 
-
+<script>$(".menu-link").on("click", function(){
+  var dataValue = $(this).attr("data-bs-target");
+  
+  // Remove active class from all page-sections
+  $(".page-section").removeClass("active");
+  
+  // Add active class to the clicked page-section
+  $(`#${dataValue}`).addClass("active");
+});
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script></body>
 </html>
